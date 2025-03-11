@@ -1,0 +1,112 @@
+CREATE TABLE tb_cliente( 
+    nome VARCHAR(30), 
+    idade INT, 
+    peso FLOAT 
+);
+
+INSERT INTO tb_cliente(nome, idade, peso)  
+    VALUES ('Bibi Perigosa', 18, 60.800);
+
+INSERT INTO tb_cliente(nome, idade, peso)  
+  VALUES ('Jorjinho do Pix', 25, 98.346);
+  
+INSERT INTO tb_cliente(nome, idade, peso)  
+  VALUES ('Claudinho', 9, 81.845);
+  
+INSERT INTO tb_cliente(nome, idade)  
+  VALUES ('Alfredo', 10);
+
+SELECT nome, idade, peso FROM tb_cliente;
+
+SELECT * FROM tb_cliente;
+
+CREATE TABLE tb_funcionario( 
+    nome VARCHAR(30), 
+    rg VARCHAR(20), 
+    salario FLOAT, 
+    idade INT 
+);
+
+INSERT INTO tb_funcionario  
+VALUES('Bibi Perigosa', '12345', 16.16, 61);
+
+INSERT INTO tb_funcionario  
+VALUES('Bibi Perigosa', '12345', 16.16, 61);
+
+INSERT INTO tb_funcionario  
+VALUES('Zézinho', '65433', 17.17, 62);
+
+INSERT INTO tb_funcionario  
+VALUES('Pedro Pascal', '74367', 18.18, 63);
+
+INSERT INTO tb_funcionario  
+VALUES('Abigail', '56432', 19.19, 64);
+
+INSERT INTO tb_funcionario  
+VALUES('Reynaldo', '86443', 20.20, 65);
+
+INSERT INTO tb_funcionario  
+VALUES('Wagner Moura', '32342', 21.21, 66);
+
+SELECT nome FROM tb_funcionario;
+
+SELECT salario/10 FROM tb_funcionario;
+
+SELECT salario, salario/10 FROM tb_funcionario;
+
+SELECT salario, salario/10, salario*10 
+    salario * 10, salario - 10 
+    FROM tb_funcionario;
+
+SELECT salario/2 FROM tb_funcionario;
+
+SELECT salario, round(salario/2,1) FROM tb_funcionario;
+
+SELECT salario, round(salario/1) FROM tb_funcionario;
+
+SELECT salario, round(salario/1), trunc(salario) FROM tb_funcionario;
+
+SELECT salario, round(salario/2,1), trunc(salario) FROM tb_funcionario;
+
+SELECT salario, round(salario,1), /*ROUND arredonda para cima e TRUNC desconsidera os quebrados*/ 
+    trunc(salario), sqrt(salario), power(salario,2) FROM tb_funcionario; /*POWER eleva ao quadrado*/
+
+SELECT salario, round(salario,1), 
+    trunc(salario), sqrt(salario),  
+    power(salario,2), mod(salario,2) FROM tb_funcionario;
+
+SELECT max(salario) FROM tb_funcionario;
+
+SELECT min(salario) FROM tb_funcionario; /*retorna o menor salário*/ 
+
+SELECT max(salario), min(salario), avg(salario) FROM tb_funcionario; /*max retorna o maior, min retorna o menor*/
+
+SELECT max(salario), min(salario), avg(salario) FROM tb_funcionario;
+
+SELECT nome, lower(nome) FROM tb_funcionario;
+
+SELECT nome, lower(nome), upper(nome) FROM tb_funcionario;
+
+SELECT nome, lower(nome), upper(nome), initCap(nome) FROM tb_funcionario;
+
+SELECT nome, substr(nome,1,3) FROM tb_funcionario;
+
+SELECT nome, substr(nome,1,3),  substr(upper(nome),1,4) FROM tb_funcionario;
+
+SELECT nome, substr(nome,1,3),  
+    substr(upper(nome),1,4), instr(nome, 'e') FROM tb_funcionario;
+
+SELECT nome, length(nome) FROM tb_funcionario;
+
+SELECT * FROM tb_funcionario WHERE nome = 'Wagner';
+
+SELECT * FROM tb_funcionario WHERE nome = 'Wagner Moura';
+
+SELECT * FROM tb_funcionario WHERE salario > 200;
+
+SELECT * FROM tb_funcionario WHERE salario > 10;
+
+SELECT * FROM tb_funcionario WHERE salario <= 10;
+
+SELECT * FROM tb_funcionario WHERE salario >= 10;
+
