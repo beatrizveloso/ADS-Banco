@@ -1,0 +1,23 @@
+CREATE TABLE tb_cliente( 
+    nome VARCHAR(30), 
+    idade INT, 
+    peso FLOAT 
+);
+
+INSERT INTO tb_cliente(nome, idade, peso)  
+    VALUES ('Bibi Perigosa', 18, 60.800);
+
+INSERT INTO tb_cliente(nome, idade, peso)  
+  VALUES ('Jorjinho do Pix', 25, 98.346);
+
+INSERT INTO tb_cliente(nome, idade, peso)  
+  VALUES ('Claudinho', 9, 81.845);
+  
+INSERT INTO tb_cliente(nome, idade)  
+  VALUES ('Alfredo', 10);
+
+SELECT nome, idade, peso FROM tb_cliente;
+
+SELECT * FROM tb_cliente;
+
+SELECT nome FROM tb_cliente;
