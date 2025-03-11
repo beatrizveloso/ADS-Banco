@@ -1,0 +1,16 @@
+CREATE TABLE tb_funcionario(
+    id_func_pk INT PRIMARY KEY,
+    nome VARCHAR(50),
+    salario FLOAT,
+    idade INT
+);
+
+INSERT INTO tb_funcionario VALUES(1, 'Shirley', 74.26, 76);
+INSERT INTO tb_funcionario VALUES(2, 'Bibi Perigosa', 34.55, 66);
+INSERT INTO tb_funcionario VALUES(3, 'Gertrude', 99.25, 87);
+INSERT INTO tb_funcionario VALUES(4, 'Olavo', 82.23, 99);
+
+SELECT * FROM tb_funcionario;
+
+DELETE FROM tb_funcionario WHERE id_func_pk = 4; 
+
