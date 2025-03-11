@@ -1,0 +1,33 @@
+CREATE TABLE tb_funcionario(
+    id_func_pk INT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL, /*NOT NULL = não aceita valores nulos*/
+    cargo VARCHAR(30) UNIQUE, /*Valores únicos*/
+    salario FLOAT,
+    idade INT
+);
+
+INSERT INTO tb_funcionario VALUES(1, 'Shirley', 'Revendedora', 74.26, 76);
+INSERT INTO tb_funcionario VALUES(2, 'Bibi Perigosa','Advogata', 34.55, 66);
+INSERT INTO tb_funcionario VALUES(3, 'Gertrude','Esteticista', 99.25, 87);
+
+INSERT INTO tb_funcionario VALUES(id_func_pk, cargo, salario, idade) 
+    VALUES (4, 'Esteticista', 99.25, 87); /*Exemplo de que não funciona*/
+
+INSERT INTO tb_funcionario VALUES(4, 'Olavo', 'Herdeiro', 82.23, 99);
+
+SELECT * FROM tb_funcionario;
+
+SELECT * FROM tb_funcionario ORDER BY nome;  /*Organiza em ordem alfabética*/
+
+DROP TABLE tb_funcionario;  /*Dropa a tabela*/
+
+DELETE FROM tb_funcionario WHERE  id_func_pk = 4; /*Deleta o id 4*/
+
+UPDATE tb_funcionario SET nome = 'Wagner Moura' WHERE id_func_pk = 4; /*Altera o id 4*/
+
+
+SELECT * FROM tb_funcionario ORDER BY salario ASC; /*Do menor para o maior*/
+SELECT * FROM tb_funcionario ORDER BY salario DESC; /*Do maior para o menor*/
+UPDATE tb_funcionario SET salario = '74.26' WHERE salario = '43.78'; /*Altera o salário do id 1*/
+
+
