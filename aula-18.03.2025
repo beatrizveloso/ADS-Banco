@@ -1,7 +1,9 @@
-CREATE TABLE tb_departamento {
+CREATE TABLE tb_departamento (
     id_dep_pk INT PRIMARY KEY,
     nome VARCHAR(30)
-}
+);
+
+SELECT * FROM tb_departamento;
 
 INSERT INTO tb_departamento VALUES(1, 'TI');
 INSERT INTO tb_departamento VALUES(2, 'Financeiro');
@@ -9,25 +11,37 @@ INSERT INTO tb_departamento VALUES(3, 'Estoque');
 INSERT INTO tb_departamento VALUES(4, 'RH');
 INSERT INTO tb_departamento VALUES(5, 'Contabilidade');
 
-CREATE TABLE tb_funcionário{
+CREATE TABLE tb_funcionario(
     id_func_pk INT PRIMARY KEY,
     nome VARCHAR(30),
     salario FLOAT, 
     idade INT,
-    departamento_fk INT,
-    CONSTRAINT dep_fk FOREING KEY(departamento_fk),
+  
+    
+    CONSTRAINT dep_fk FOREIGN KEY(departamento_fk)
     REFERENCES tb_departamento(id_dep_pk)
-}
+);
 
-INSERT INTO tb_funcionário VALUES(1, 'Palmirinha', 42.85, 71, 3);
-INSERT INTO tb_funcionário VALUES(1, 'Louro José', 963.52, 37, 1);
-INSERT INTO tb_funcionário VALUES(1, 'Ratinho', 6324.05, 101, 1);
-INSERT INTO tb_funcionário VALUES(1, 'Celso Portioli', 423.85, 25, 4);
-INSERT INTO tb_funcionário VALUES(1, 'Mamonas Assassinas', 2365.25, 41, 2);
-INSERT INTO tb_funcionário VALUES(1, 'Wagner Moura', 852.52, 52, 2);
-INSERT INTO tb_funcionário VALUES(1, 'Capitão Nascimento', 2531.52, 110, 5);
+DROP TABLE tb_funcionario;
+DROP TABLE tb_departamento;
 
+INSERT INTO tb_funcionario VALUES(1, 'Palmirinha', 42.85, 71, 3);
+INSERT INTO tb_funcionario VALUES(2, 'Louro José', 963.52, 37, 1);
+INSERT INTO tb_funcionario VALUES(3, 'Ratinho', 6324.05, 101, 1);
+INSERT INTO tb_funcionario VALUES(4, 'Celso Portioli', 423.85, 25, 4);
+INSERT INTO tb_funcionario VALUES(5, 'Mamonas Assassinas', 2365.25, 41, 2);
+INSERT INTO tb_funcionario VALUES(6, 'Wagner Moura', 852.52, 52, 2);
+INSERT INTO tb_funcionario VALUES(7, 'Capitão Nascimento', 2531.52, 110, 5);
 
+SELECT * FROM tb_funcionario;
 
+SELECT nome, salario FROM tb_funcionario
+WHERE departamento_fk = (SELECT id_	dep_pk FROM tb_departamento	WHERE nome = 'TI');
 
+SELECT nome, salario FROM tb_funcionario
+WHERE salario = (SELECT salario FROM tb_funcionario	WHERE nome = 'Wagner Moura');
 
+SELECT nome, salario FROM tb_funcionario
+WHERE salario = (SELECT avg(salario) FROM tb_funcionario) ORDER BY nome DESC;
+
+SELECT id_dep_pk FROM tb_departamento WHERE nome in('TI', 'Estoque');
