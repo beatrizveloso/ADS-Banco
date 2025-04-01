@@ -1,1 +1,40 @@
 /*Exercícios - Prof Cleber*/
+SELECT * FROM tb_funcionario;
+SELECT DISTINCT (departamento_fk) FROM tb_funcionario;
+
+SELECT DISTINCT (departamento_fk) FROM tb_funcionario;
+ ORDER BY departamento_fk ASC;
+
+ SELECT nome "Nome funcionário" FROM tb_funcionario; /*É usada para recuperar valores únicos de uma tabela de banco de dados.*/
+
+SELECT nome, salario, salario || salario  * 12 "Salário anual"
+FROM tb_funcionario;
+
+SELECT nome, salario FROM tb_funcionario
+WHERE salario BETWEEN 200 AND 500;  /*Pega o que está entre 200 e 500*/
+
+SELECT nome, salario FROM tb_funcionario
+WHERE salario NOT BETWEEN 200 AND 500; /*Pega o que não está entre 200 e 500*/
+
+SELECT nome, salario, departamento_fk FROM
+tb_funcionario WHERE departamento_fk IN (1,2); /*Está no 1 e 2*/
+
+SELECT nome, salario, departamento_fk FROM
+tb_funcionario WHERE departamento_fk NOT IN (1,2); /*Não está no 1 e 2*/
+
+SELECT nome, salario FROM tb_funcionario WHERE nome LIKE 'A%'; /*Palavras que começam com A e termina com qualquer coisa*/
+
+SELECT nome, salario FROM tb_funcionario WHERE nome LIKE '%A'; /*Palavras que terminam com A maiúsculo*/
+
+SELECT nome, salario FROM tb_funcionario WHERE nome LIKE '%A%'; /*Palavras que tem A maiúsculo no meio*/
+
+SELECT nome, salario FROM tb_funcionario WHERE nome LIKE '%a%'; /*Palavras que tem a minúsculo*/
+
+/*Exercícios*/
+/*1) Crie uma query que liste todos os funcionários que não estão alocados nos departamentos 1 e 3.*/
+SELECT nome, salario, departamento_fk FROM
+tb_funcionario WHERE departamento_fk NOT IN (1,3);
+
+/*2) Crie uma query que selecione os funcionários que recebem entre 300 e 600.*/
+SELECT nome, salario FROM tb_funcionario
+WHERE salario BETWEEN 300 AND 600;
