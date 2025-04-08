@@ -15,8 +15,8 @@ INSERT INTO tb_estoque(id_est_pk, nome_produto, valor_icms)
 INSERT INTO tb_estoque(id_est_pk, nome_produto, tipo_produto, valor_icms) 
     VALUES(2, 'Chocolate B', 'B', 14.75);
 
-INSERT INTO tb_estoque(id_est_pk, nome_produto, valor_icms, qtd_produto) 
-    VALUES(3, 'Chocolate A', 14.75, 7);
+INSERT INTO tb_estoque(id_est_pk, nome_produto, valor, icms, qtd_produto) 
+    VALUES(5, 'Chocolate A', 560.20, 14.75, 2);
 
 SELECT * FROM tb_estoque;
 
@@ -29,5 +29,5 @@ ALTER TABLE tb_estoque RENAME COLUMN xxx to yy; /*Renomeia a coluna que criamos*
 ALTER TABLE tb_estoque RENAME COLUMN valor_icms to icms; 
 
 /*2) Crie uma query que selecione apenas os produtos que um valor acima de 200 e ordene pelo nome do produto*/
-
-
+SELECT nome_produto, valor FROM tb_estoque
+WHERE valor > 200 ORDER BY nome_produto;
