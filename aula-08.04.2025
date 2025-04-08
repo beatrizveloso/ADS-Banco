@@ -1,0 +1,8 @@
+/*Prof Cleber - Aula 08.04*/
+
+CREATE TABLE tb_estoque (
+    id_est_pk INT PRIMARY KEY,
+    nome_produto VARCHAR(30),
+    valor FLOAT,
+    tipo_produto CHAR(1) CHECK(tipo_produto IN ('A', 'B'))
+);
