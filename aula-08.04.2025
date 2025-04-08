@@ -20,5 +20,5 @@ INSERT INTO tb_estoque(id_est_pk, nome_produto, valor_icms, qtd_produto)
 
 SELECT * FROM tb_estoque;
 
-DROP TABLE tb_estoque;
-
+ALTER TABLE tb_estoque ADD (xxx INT); /*Modifica a estrutura de uma tabela existente em um banco de dados. Ele pode ser usado para: Adicionar, excluir ou alterar colunas, Alterar o tipo de dados de uma coluna*/
+ALTER TABLE tb_estoque DROP(xxx); /*Apaga essa estrutura que vc criou*/
