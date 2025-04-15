@@ -1,0 +1,34 @@
+/*Exercícios - Prof Cleber - 15.04*/ 
+
+/*1) Crie uma tabela chamada produto. Esta tabela de conter os seguintes campos, id(como chave primária), nome(Unique e not null), valor, e 
+(que poderá aceitar somente A ou  B*/
+CREATE TABLE tb_produto (
+    id_prod_pk INT PRIMARY KEY,
+    nome_prod VARCHAR(50) UNIQUE NOT NULL,
+    valor FLOAT,
+    tipo_produto CHAR(1) CHECK (tipo_produto IN ('A', 'B'))
+);
+
+DROP TABLE tb_fornecedor; 
+
+/*2) Crie outra tabela chamada fornecedor, com os seguintes campos, id(chave primária), nome fantasia, razão social, e produto(chave estrangeira).*/
+CREATE TABLE tb_fornecedor (
+    id_forn_pk INT PRIMARY KEY,
+    nome_fantasia VARCHAR(50),
+    razão_social VARCHAR(50),
+    id_prod_fk INT,
+    FOREIGN KEY (id_prod_fk) REFERENCES tb_produto(id_prod_pk)
+);
+
+/*3) Insere 3 registros em cada tabela*/
+INSERT INTO tb_produto VALUES(1, 'Chanel N°5 - Eau de Parfum', 1.300, 'B');
+INSERT INTO tb_produto VALUES(2, 'Gucci Bolsa Tote Ophidia Mini | Marrom', 11.660, 'B');
+INSERT INTO tb_produto VALUES(3, 'Bolsa Petit Palais Monogram - Bolsas', 18.800, 'A');
+
+INSERT INTO tb_fornecedor VALUES(1,'Chanel', 'Chanel S.A.', 1);
+INSERT INTO tb_fornecedor VALUES(2,'Gucci', 'Gucci S.p.A.', 2);
+INSERT INTO tb_fornecedor VALUES(3, 'Louis Vuitton', 'Louis Vuitton Malletier S.A.', 3);
+
+/*4) Crie uma query para selecionar os produtos que possuem um valor acima da média*/
+SELECT nome_prod , valor FROM tb_produto
+WHERE valor > (SELECT AVG(valor) FROM tb_produto);
